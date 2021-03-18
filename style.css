@@ -1,0 +1,82 @@
+#navbar{
+    position: relative;
+    background-color: #696969;
+    width: 99.5%;
+    border-radius: 25px;
+}
+
+#home-btn{
+    width: 250px;
+    margin: 15px 15px 15px 25px;
+}
+
+.menu-btn{
+    position: absolute;
+    top: 15px;
+    padding: 10px 10px 10px 10px;
+    margin-top: 10px;
+    border-radius: 12px;
+    background: #f7f7f7;
+}
+.menu-btn:hover{
+    box-shadow:  5px 5px 5px #f7f7f7,
+                -2px -2px 9px #f7f7f7;
+}
+
+#download-btn{
+    left: 300px;
+}
+
+#horn-btn{
+    left: 37%;
+}
+
+#king-btn{
+    left: 42%;
+}
+
+#punk-btn{
+    left: 47%;
+}
+
+#tophat-btn{
+    left: 52%;
+}
+
+.navbar-links{
+    font-size: 20px;
+    font-family: Verdana, sans-serif;
+    color: #000000;
+    text-decoration: none;
+}
+
+.download-content-link{
+    position: relative;
+    font-size: 30px;
+    font-family: Verdana, sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+    left: 50px;
+}
+
+.container{
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    top:12%;
+    height: 75%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body{
+    background-image: url("./images/background.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+h2{
+    font-family: Verdana, sans-serif;
+    color: #ffffff;
+}
