@@ -50,6 +50,15 @@
     text-decoration: none;
 }
 
+.download-content-link{
+    position: relative;
+    font-size: 30px;
+    font-family: Verdana, sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+    left: 50px;
+}
+
 .container{
     position: absolute;
     left: 2%;
@@ -67,34 +76,7 @@ body{
     background-size: 100%;
 }
 
-/*
-.download-content{
-    position: relative;
-    margin-top: 2%;
-    margin-left: 2%;
-    margin-right: 2%;
-}
 h2{
-    font-family: arial;
-    color: #000000;
-}
-.download-content-link{
-    position: relative;
-    font-size: 20px;
     font-family: Verdana, sans-serif;
-    color: #000000;
-    text-decoration: none;
-    left: 50px;
+    color: #ffffff;
 }
-
-#menu-download{
-    position: absolute;
-    top: 0;
-    right: 30px;
-    padding: 10px 10px 10px 10px;
-    margin-top: 8px;
-    border: 5px solid black;
-}
-background-image: url("./images/background.png");
-    background-repeat: no-repeat;
-    background-size: 100%;*/

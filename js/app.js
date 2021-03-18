@@ -64,7 +64,7 @@ function random_color() {
 function animate() {
     requestAnimationFrame(animate);
     if (mesh) {
-        mesh.rotation.z += 0.01;
+        mesh.rotation.z += 0.005;
     }
     renderer.render(scene, camera);
 }
