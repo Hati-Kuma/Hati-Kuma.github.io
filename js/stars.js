@@ -1,6 +1,6 @@
 var bigStar = 20;
 var smallStar = 5;
-var radiusStar = 200;
+var radiusStar = 270;
 var numStar = 20;
 
 var cvs = document.getElementById("stars");
