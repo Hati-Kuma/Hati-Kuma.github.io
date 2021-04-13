@@ -70,6 +70,19 @@
     margin-right: auto;
 }
 
+#stars{
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    top:12%;
+    height: 75%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border:0px solid #c3c3c3; 
+    z-index:-1;
+}
+
 body{
     background-image: url("./images/background.png");
     background-size: 100%;
