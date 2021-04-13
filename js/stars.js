@@ -1,16 +1,25 @@
 var bigStar = 20;
 var smallStar = 5;
-var radiusStar = 270;
-var numStar = 20;
+var radiusStar = 250;
+var numStar = 16;
 
-var cvs = document.getElementById("stars");
-var ctx = cvs.getContext("2d");
+var maincvs = document.getElementById("stars");
+var mainctx = maincvs.getContext("2d");
 
-var wCanvas = cvs.clientWidth;
-var hCanvas = cvs.clientHeight;
+var wCanvas = maincvs.clientWidth;
+var hCanvas = maincvs.clientHeight;
 
-ctx.canvas.width  = wCanvas;
-ctx.canvas.height = hCanvas;
+mainctx.canvas.width  = wCanvas;
+mainctx.canvas.height = hCanvas;
+
+var canvas_stack = new CanvasStack("stars");
+
+var backcvs = canvas_stack.createLayer();
+var backctx = document.getElementById(backcvs).getContext("2d");
+
+
+var cvs = canvas_stack.createLayer();
+var ctx = document.getElementById(cvs).getContext("2d");
 
 ctx.translate(wCanvas/2-60, hCanvas/2-60);
 
@@ -74,5 +83,32 @@ function positionStars(){
     
 }
 
-//positionStars()
+var backBigStar = 40;
+var backSmallStar = 10;
+function drawbackStar(x, y){
+    backctx.clearRect(-wCanvas/2, -hCanvas/2, 2*wCanvas, 2*hCanvas);
+
+    backctx.beginPath();
+    backctx.moveTo(x, y-backBigStar);
+
+    backctx.lineTo(x+backSmallStar, y-backSmallStar);
+    backctx.lineTo(x+backBigStar, y);
+
+    backctx.lineTo(x+backSmallStar, y+backSmallStar);
+    backctx.lineTo(x, y+backBigStar);
+
+    backctx.lineTo(x-backSmallStar, y+backSmallStar);
+    backctx.lineTo(x-backBigStar, y);
+
+    backctx.lineTo(x-backSmallStar, y-backSmallStar);
+    backctx.lineTo(x, y-backBigStar);
+
+    backctx.fillStyle = "#c3c3c3";
+    backctx.fill();
+}
+
+document.querySelector(".container").addEventListener("mousemove", function(e){
+    drawbackStar(e.x-200, e.y-70)
+});
+
 setInterval(positionStars, 50)
