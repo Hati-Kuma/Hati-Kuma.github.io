@@ -12,7 +12,7 @@ var hCanvas = cvs.clientHeight;
 ctx.canvas.width  = wCanvas;
 ctx.canvas.height = hCanvas;
 
-ctx.translate(wCanvas/2, hCanvas/2);
+ctx.translate(wCanvas/2-60, hCanvas/2-60);
 
 
 function drawStar(x, y){
