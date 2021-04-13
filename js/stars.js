@@ -111,4 +111,9 @@ document.querySelector(".container").addEventListener("mousemove", function(e){
     drawbackStar(e.x-200, e.y-70)
 });
 
+function onWindowResize(){
+    window.location.reload()
+}
+window.addEventListener("resize", onWindowResize);
+
 setInterval(positionStars, 50)
