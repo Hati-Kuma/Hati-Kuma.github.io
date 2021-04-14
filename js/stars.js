@@ -1,6 +1,6 @@
 var bigStar = 20;
 var smallStar = 5;
-var numStar = 16;
+var numStar = 14;
 
 var maincvs = document.getElementById("stars");
 var mainctx = maincvs.getContext("2d");
@@ -84,24 +84,27 @@ function positionStars(){
     
 }
 
-var backBigStar = 5;
-var backSmallStar = 1;
+let backSmallStar;
+let backBigStar;
 var numBackStar = 0;
 let radiusLight;
 let gdr;
 
 function drawbackStar(x, y){
     if(numBackStar==75){
+        backSmallStar = Math.random()*3;
+        backBigStar = backSmallStar*5;
+
         backctx.beginPath();
-        radiusLight = (Math.random()+1)*3;
-        backctx.arc(x, y, radiusLight*5, 0, 2 * Math.PI);
+        radiusLight = backBigStar*1.1;
+        backctx.arc(x, y, radiusLight*10, 0, 2 * Math.PI);
         gdr = backctx.createRadialGradient(x, y, radiusLight, x, y, radiusLight*5);
         gdr.addColorStop(0, "white");
         gdr.addColorStop(1, "transparent");
         backctx.fillStyle = gdr;
         backctx.fill()
         //backctx.clearRect(-wCanvas/2, -hCanvas/2, 2*wCanvas, 2*hCanvas);
-
+        
         backctx.beginPath();
         backctx.moveTo(x, y-backBigStar);
 
