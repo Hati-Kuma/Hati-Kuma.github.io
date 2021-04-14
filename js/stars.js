@@ -93,7 +93,7 @@ let gdr;
 function drawbackStar(x, y){
     if(numBackStar==75){
         backSmallStar = Math.random()*3;
-        backBigStar = backSmallStar*10;
+        backBigStar = backSmallStar*7;
         
         backctx.beginPath();
         radiusLight = backBigStar;
