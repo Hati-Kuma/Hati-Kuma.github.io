@@ -90,7 +90,7 @@ let radiusLight;
 let gdr;
 
 function drawbackStar(x, y){
-    if(numBackStar==50){
+    if(numBackStar==75){
         backctx.beginPath();
         radiusLight = (Math.random()+1)*3;
         backctx.arc(x, y, radiusLight*5, 0, 2 * Math.PI);
