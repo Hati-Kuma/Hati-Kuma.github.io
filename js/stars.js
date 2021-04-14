@@ -1,6 +1,5 @@
 var bigStar = 20;
 var smallStar = 5;
-var radiusStar = 250;
 var numStar = 16;
 
 var maincvs = document.getElementById("stars");
@@ -11,6 +10,8 @@ var hCanvas = maincvs.clientHeight;
 
 mainctx.canvas.width  = wCanvas;
 mainctx.canvas.height = hCanvas;
+
+var radiusStar = hCanvas/3;
 
 var canvas_stack = new CanvasStack("stars");
 
