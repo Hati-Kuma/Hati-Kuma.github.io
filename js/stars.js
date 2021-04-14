@@ -1,7 +1,7 @@
 var bigStar = 20;
 var smallStar = 5;
-var radiusStar = 300;
-var numStar = 20;
+var radiusStar = 250;
+var numStar = 16;
 
 var maincvs = document.getElementById("stars");
 var mainctx = maincvs.getContext("2d");
