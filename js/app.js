@@ -55,9 +55,9 @@ function init(stl_name) {
     });
 }
 
-const colors = [0xC51111, 0x132ED1, 0x117F2D, 0xED54BA, 0xEF7D0E, 0xF6F658, 0x3F474E, 0xD6E0F0, 0x6B31BC, 0x71491E, 0x38FEDB, 0x50EF39, 0x1D9853]
+const colors = [0xC51111, 0x132ED1, 0x117F2D, 0xED54BA, 0xEF7D0E, 0xF6F658, 0x3F474E, 0x6B31BC, 0x71491E, 0x38FEDB, 0x50EF39, 0x1D9853]
 function random_color() {
-    ranNum = Math.floor(Math.random()*13)
+    ranNum = Math.floor(Math.random()*12)
     return colors[ranNum]
 }
 //Animates the model
