@@ -83,28 +83,47 @@ function positionStars(){
     
 }
 
-var backBigStar = 40;
-var backSmallStar = 10;
+var backBigStar = 5;
+var backSmallStar = 1;
+var numBackStar = 0;
+let radiusLight;
+let gdr;
+
 function drawbackStar(x, y){
-    backctx.clearRect(-wCanvas/2, -hCanvas/2, 2*wCanvas, 2*hCanvas);
+    if(numBackStar==50){
+        backctx.beginPath();
+        radiusLight = (Math.random()+1)*3;
+        backctx.arc(x, y, radiusLight*5, 0, 2 * Math.PI);
+        gdr = backctx.createRadialGradient(x, y, radiusLight, x, y, radiusLight*5);
+        gdr.addColorStop(0, "white");
+        gdr.addColorStop(1, "transparent");
+        backctx.fillStyle = gdr;
+        backctx.fill()
+        //backctx.clearRect(-wCanvas/2, -hCanvas/2, 2*wCanvas, 2*hCanvas);
 
-    backctx.beginPath();
-    backctx.moveTo(x, y-backBigStar);
+        backctx.beginPath();
+        backctx.moveTo(x, y-backBigStar);
 
-    backctx.lineTo(x+backSmallStar, y-backSmallStar);
-    backctx.lineTo(x+backBigStar, y);
+        backctx.lineTo(x+backSmallStar, y-backSmallStar);
+        backctx.lineTo(x+backBigStar, y);
 
-    backctx.lineTo(x+backSmallStar, y+backSmallStar);
-    backctx.lineTo(x, y+backBigStar);
+        backctx.lineTo(x+backSmallStar, y+backSmallStar);
+        backctx.lineTo(x, y+backBigStar);
 
-    backctx.lineTo(x-backSmallStar, y+backSmallStar);
-    backctx.lineTo(x-backBigStar, y);
+        backctx.lineTo(x-backSmallStar, y+backSmallStar);
+        backctx.lineTo(x-backBigStar, y);
 
-    backctx.lineTo(x-backSmallStar, y-backSmallStar);
-    backctx.lineTo(x, y-backBigStar);
+        backctx.lineTo(x-backSmallStar, y-backSmallStar);
+        backctx.lineTo(x, y-backBigStar);
 
-    backctx.fillStyle = "#c3c3c3";
-    backctx.fill();
+        backctx.fillStyle = "#c3c3c3";
+        backctx.fill();
+        numBackStar=0;
+    }else{
+        numBackStar += 1;
+    }
+
+    
 }
 
 document.querySelector(".container").addEventListener("mousemove", function(e){
