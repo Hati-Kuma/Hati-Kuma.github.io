@@ -93,12 +93,12 @@ let gdr;
 function drawbackStar(x, y){
     if(numBackStar==75){
         backSmallStar = Math.random()*3;
-        backBigStar = backSmallStar*5;
-
+        backBigStar = backSmallStar*10;
+        
         backctx.beginPath();
-        radiusLight = backBigStar*1.1;
+        radiusLight = backBigStar;
         backctx.arc(x, y, radiusLight*10, 0, 2 * Math.PI);
-        gdr = backctx.createRadialGradient(x, y, radiusLight, x, y, radiusLight*5);
+        gdr = backctx.createRadialGradient(x, y, radiusLight*0.75, x, y, radiusLight*2);
         gdr.addColorStop(0, "white");
         gdr.addColorStop(1, "transparent");
         backctx.fillStyle = gdr;
