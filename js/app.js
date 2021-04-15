@@ -78,9 +78,9 @@ function animate(){
         }else{
             document.querySelector(".container").addEventListener("wheel",function(e){
                 if(e.deltaY>0){
-                    mesh.rotation.z += 0.001;
+                    mesh.rotation.z += e.deltaY/100000;
                 }else{
-                    mesh.rotation.z -= 0.001;
+                    mesh.rotation.z -= e.deltaY/100000;
                 }
             });
         }
