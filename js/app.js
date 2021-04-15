@@ -80,7 +80,7 @@ function animate(){
                 if(e.deltaY>0){
                     mesh.rotation.z += e.deltaY/100000;
                 }else{
-                    mesh.rotation.z -= e.deltaY/100000;
+                    mesh.rotation.z += e.deltaY/100000;
                 }
             });
         }
