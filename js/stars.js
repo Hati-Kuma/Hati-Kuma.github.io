@@ -111,6 +111,14 @@ function drawbackStar(x, y){
     
 }
 
+function autorunfunc(){
+    if(localStorage.getItem("autorun")=="true"){
+        localStorage.setItem("autorun", "false");
+    }else if(localStorage.getItem("autorun") == "false"){
+        localStorage.setItem("autorun", "true");
+    }
+}
+
 document.querySelector(".container").addEventListener("mousemove", function(e){
     drawbackStar(e.x-200, e.y-70);
 });
