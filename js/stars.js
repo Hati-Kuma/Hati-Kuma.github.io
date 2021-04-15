@@ -92,7 +92,7 @@ let gdr;
 function drawbackStar(x, y){
     if(numBackStar==150){
         backSStar = Math.random()*3;
-        backBStar = backSStar*7;
+        backBStar = backSStar*5;
 
         backGSStar = backSStar*3;
         backGBStar = backBStar*3;
