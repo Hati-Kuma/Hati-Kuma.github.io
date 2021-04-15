@@ -1,3 +1,4 @@
+
 var bigStar = 20;
 var smallStar = 5;
 var numStar = 14;
@@ -7,7 +8,6 @@ var mainctx = maincvs.getContext("2d");
 
 var wCanvas = maincvs.clientWidth;
 var hCanvas = maincvs.clientHeight;
-
 mainctx.canvas.width  = wCanvas;
 mainctx.canvas.height = hCanvas;
 
@@ -22,32 +22,33 @@ var backctx = document.getElementById(backcvs).getContext("2d");
 var cvs = canvas_stack.createLayer();
 var ctx = document.getElementById(cvs).getContext("2d");
 
-ctx.translate(wCanvas/2-60, hCanvas/2-60);
+ctx.translate(wCanvas/2, hCanvas/2);
 
 
-function drawStar(x, y){
-    ctx.beginPath();
-    ctx.moveTo(x, y-bigStar);
+function drawStar(env, x, y, color, bStar, sStar){
+    env.beginPath();
+    env.moveTo(x, y-bStar);
 
-    ctx.lineTo(x+smallStar, y-smallStar);
-    ctx.lineTo(x+bigStar, y);
+    env.lineTo(x+sStar, y-sStar);
+    env.lineTo(x+bStar, y);
 
-    ctx.lineTo(x+smallStar, y+smallStar);
-    ctx.lineTo(x, y+bigStar);
+    env.lineTo(x+sStar, y+sStar);
+    env.lineTo(x, y+bStar);
 
-    ctx.lineTo(x-smallStar, y+smallStar);
-    ctx.lineTo(x-bigStar, y);
+    env.lineTo(x-sStar, y+sStar);
+    env.lineTo(x-bStar, y);
 
-    ctx.lineTo(x-smallStar, y-smallStar);
-    ctx.lineTo(x, y-bigStar);
+    env.lineTo(x-sStar, y-sStar);
+    env.lineTo(x, y-bStar);
 
-    ctx.fillStyle = "White";
-    ctx.fill();
+    env.fillStyle = color;
+    env.fill();
 }
+
 var increaseX = radiusStar/100;
 
 function yFind(xPosition){
-    return Math.sqrt(Math.pow(radiusStar,2)-Math.pow(xPosition,2))
+    return Math.sqrt(Math.pow(radiusStar,2)-Math.pow(xPosition,2));
 }
 
 var starDistance = 4*radiusStar/numStar;
@@ -56,29 +57,27 @@ ylist = [];
 mrlist = [];
 
 for(let X = 0; X<(numStar-1)/(numStar/2)*radiusStar; X += starDistance){
-    xlist.push(X-radiusStar)
-    ylist.push(yFind(X-radiusStar))
-    mrlist.push(true)
+    xlist.push(X-radiusStar);
+    ylist.push(yFind(X-radiusStar));
+    mrlist.push(true);
 }
-
-
 
 function positionStars(){
     ctx.clearRect(-wCanvas/2, -hCanvas/2, wCanvas, hCanvas);
     for(let i = 0; i<=(numStar/2)-1; i++){
-        drawStar(xlist[i], ylist[i])
-        drawStar(-xlist[i], -ylist[i])
+        drawStar(ctx, xlist[i], ylist[i], "white", bigStar, smallStar);
+        drawStar(ctx, -xlist[i], -ylist[i], "white", bigStar, smallStar);
         if(xlist[i] >= radiusStar){
             mrlist[i] = false;
         }else if(xlist[i] <= -radiusStar){
             mrlist[i] = true;
         }
         if(mrlist[i]){
-            xlist[i] += increaseX
-            ylist[i] = -yFind(xlist[i])
+            xlist[i] += increaseX;
+            ylist[i] = -yFind(xlist[i]);
         }else{
-            xlist[i] -= increaseX
-            ylist[i] = yFind(xlist[i])
+            xlist[i] -= increaseX;
+            ylist[i] = yFind(xlist[i]);
         } 
     }
     
@@ -91,37 +90,19 @@ let radiusLight;
 let gdr;
 
 function drawbackStar(x, y){
-    if(numBackStar==75){
-        backSmallStar = Math.random()*3;
-        backBigStar = backSmallStar*7;
-        
-        backctx.beginPath();
-        radiusLight = backBigStar;
-        backctx.arc(x, y, radiusLight*10, 0, 2 * Math.PI);
-        gdr = backctx.createRadialGradient(x, y, radiusLight*0.75, x, y, radiusLight*2);
+    if(numBackStar==150){
+        backSStar = Math.random()*3;
+        backBStar = backSStar*7;
+
+        backGSStar = backSStar*3;
+        backGBStar = backBStar*3;
+
+        gdr = backctx.createRadialGradient(x, y, backBStar*0.75, x, y, backBStar*7);
         gdr.addColorStop(0, "white");
         gdr.addColorStop(1, "transparent");
-        backctx.fillStyle = gdr;
-        backctx.fill()
-        //backctx.clearRect(-wCanvas/2, -hCanvas/2, 2*wCanvas, 2*hCanvas);
-        
-        backctx.beginPath();
-        backctx.moveTo(x, y-backBigStar);
 
-        backctx.lineTo(x+backSmallStar, y-backSmallStar);
-        backctx.lineTo(x+backBigStar, y);
-
-        backctx.lineTo(x+backSmallStar, y+backSmallStar);
-        backctx.lineTo(x, y+backBigStar);
-
-        backctx.lineTo(x-backSmallStar, y+backSmallStar);
-        backctx.lineTo(x-backBigStar, y);
-
-        backctx.lineTo(x-backSmallStar, y-backSmallStar);
-        backctx.lineTo(x, y-backBigStar);
-
-        backctx.fillStyle = "#c3c3c3";
-        backctx.fill();
+        drawStar(backctx, x, y, gdr, backGBStar, backGSStar);
+        drawStar(backctx, x, y, "#c3c3c3", backBStar, backSStar);
         numBackStar=0;
     }else{
         numBackStar += 1;
@@ -131,12 +112,11 @@ function drawbackStar(x, y){
 }
 
 document.querySelector(".container").addEventListener("mousemove", function(e){
-    drawbackStar(e.x-200, e.y-70)
+    drawbackStar(e.x-200, e.y-70);
 });
-
 function onWindowResize(){
-    window.location.reload()
+    window.location.reload();
 }
 window.addEventListener("resize", onWindowResize);
 
-setInterval(positionStars, 50)
+setInterval(positionStars, 50);
