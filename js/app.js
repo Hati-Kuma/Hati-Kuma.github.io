@@ -50,16 +50,20 @@ function init(stl_name) {
         mesh = new THREE.Mesh( geometry, material );
         mesh.rotation.x = 5;
         mesh.rotation.z = .25;
+        mesh.position.x = 10;
+        mesh.position.y = -10;
         mesh.geometry.center();
         scene.add( mesh );
     });
 }
 
+//Choose color
 const colors = [0xC51111, 0x132ED1, 0x117F2D, 0xED54BA, 0xEF7D0E, 0xF6F658, 0x3F474E, 0x6B31BC, 0x71491E, 0x38FEDB, 0x50EF39, 0x1D9853]
 function random_color() {
     ranNum = Math.floor(Math.random()*12)
     return colors[ranNum]
 }
+
 //Animates the model
 function animate() {
     requestAnimationFrame(animate);
@@ -76,6 +80,5 @@ function onWindowResize() {
     camera.updateProjectionMatrix();
   
     renderer.setSize(container.clientWidth, container.clientHeight);
-  }
-  
+  } 
 window.addEventListener("resize", onWindowResize);
