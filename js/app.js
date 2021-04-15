@@ -49,7 +49,7 @@ function init(stl_name) {
     loader.load( stl_name, function ( geometry ) {
         mesh = new THREE.Mesh( geometry, material );
         mesh.rotation.x = 5;
-        mesh.rotation.z = .25;
+        mesh.rotation.z = 1.5;
         mesh.position.x = 10;
         mesh.position.y = -10;
         mesh.geometry.center();
