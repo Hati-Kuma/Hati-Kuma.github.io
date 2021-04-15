@@ -64,11 +64,27 @@ function random_color() {
     return colors[ranNum]
 }
 
-//Animates the model
-function animate() {
+//Save autorun if first time default is true
+if(localStorage.getItem("autorun")==null){
+    localStorage.setItem("autorun", "true");
+    alert(localStorage.getItem("autorun"));
+}
+
+//Shows the 3D object
+function animate(){
     requestAnimationFrame(animate);
-    if (mesh) {
-        mesh.rotation.z += 0.01;
+    if(mesh){
+        if(localStorage.getItem("autorun")=="true"){
+            mesh.rotation.z += 0.01; 
+        }else{
+            document.querySelector(".container").addEventListener("wheel",function(e){
+                if(e.deltaY>0){
+                    mesh.rotation.z += 0.001;
+                }else{
+                    mesh.rotation.z -= 0.001;
+                }
+            });
+        }
     }
     renderer.render(scene, camera);
 }
