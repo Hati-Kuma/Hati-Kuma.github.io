@@ -67,7 +67,6 @@ function random_color() {
 //Save autorun if first time default is true
 if(localStorage.getItem("autorun")==null){
     localStorage.setItem("autorun", "true");
-    alert(localStorage.getItem("autorun"));
 }
 
 //Shows the 3D object
