@@ -74,18 +74,19 @@ function animate(){
     requestAnimationFrame(animate);
     if(mesh){
         if(localStorage.getItem("autorun")=="true"){
-            mesh.rotation.z += 0.01; 
+            mesh.rotation.z += 0.005; 
         }else{
-            document.querySelector(".container").addEventListener("wheel",function(e){
-                if(e.deltaY>0){
-                    mesh.rotation.z += e.deltaY/100000;
-                }else{
-                    mesh.rotation.z += e.deltaY/100000;
-                }
-            });
+            document.querySelector(".container").addEventListener("wheel", manualrun);
         }
     }
     renderer.render(scene, camera);
+}
+function manualrun(e){
+    if(e.deltaY>0){
+        mesh.rotation.z += e.deltaY/1000;
+    }else{
+        mesh.rotation.z += e.deltaY/1000;
+    }
 }
 
 //Resizes the canvas
