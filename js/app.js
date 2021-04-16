@@ -82,7 +82,6 @@ function animate(){
     renderer.render(scene, camera);
 }
 function manualrun(e){
-    console.log(e.deltaY/1000)
     mesh.rotation.z += e.deltaY/1000;
 }
 
