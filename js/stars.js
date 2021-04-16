@@ -115,6 +115,7 @@ function autorunfunc(){
     if(localStorage.getItem("autorun")=="true"){
         localStorage.setItem("autorun", "false");
     }else if(localStorage.getItem("autorun") == "false"){
+        document.querySelector(".container").removeEventListener("wheel", manualrun);
         localStorage.setItem("autorun", "true");
     }
 }
