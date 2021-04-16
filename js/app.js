@@ -82,11 +82,8 @@ function animate(){
     renderer.render(scene, camera);
 }
 function manualrun(e){
-    if(e.deltaY>0){
-        mesh.rotation.z += e.deltaY/1000;
-    }else{
-        mesh.rotation.z += e.deltaY/1000;
-    }
+    console.log(e.deltaY/1000)
+    mesh.rotation.z += e.deltaY/1000;
 }
 
 //Resizes the canvas
