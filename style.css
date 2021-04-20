@@ -96,3 +96,12 @@ h2{
     font-family: Verdana, sans-serif;
     color: #ffffff;
 }
+
+h3{
+    top:40%;
+    position: absolute;
+    margin-left:38%;
+    width: 25%;
+    font-family: Verdana, sans-serif;
+    color: #ffffff;
+}
